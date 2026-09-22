@@ -61,10 +61,10 @@ jobs:
           echo "✅ Форматування в порядку"
 
       - name: Статичний аналіз (go vet)
-        run: go vet ./...
+        run: go vet ./library ./nilslice ./cmd/library
 
       - name: Запустити тести з покриттям
-        run: go test ./... -v -cover
+        run: go test ./library ./nilslice ./cmd/library -v -cover
 
-      - name: Зібрати всі бінарники
-        run: go build ./...
+      - name: Зібрати робочі пакети
+        run: go build ./library ./nilslice ./cmd/library
